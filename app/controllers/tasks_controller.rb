@@ -1,6 +1,8 @@
 class TasksController < ApplicationController
   def index
-    Task.new(params[:indatum],params[:einddatum],params[:prioriteit],params[:beschrijving],params[:status]).save
+  end
+
+  def home
   end
 
   def new
@@ -13,5 +15,15 @@ class TasksController < ApplicationController
 
   def show
   end
+
+  def getSave
+    @task = Task.new(params[:indatum],params[:einddatum],params[:prioriteit],params[:beschrijving],params[:status])
+    @task.save
+  end
+
+  def filter
+    @tasks = Task.where(prioriteit: params[:id])
+  end
+
 
 end

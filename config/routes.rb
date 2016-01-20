@@ -2,13 +2,16 @@ Rails.application.routes.draw do
 
   resources :tasks
 
-  root to: 'tasks#index'
 
-  get '/tasks/index' => 'task#new'
-  get '/tasks/show' => 'tasks#create'
+
+  get '/tasks/filter/:id' => 'tasks#filter'
+  #get '/tasks/index' => 'task#getSave'
+  get '/tasks/:indatum&:einddatum&:prioriteit&:beschrijving&:status' => 'tasks#getSave'
+  #get '/tasks/index' => 'task#new'
+  #get '/tasks/show' => 'tasks#create'
   # get 'tasks?params' => 'tasks#create'
   # get 'tasks/:indatum&:einddatum&:prioriteit&:beschrijving&:status' => 'tasks#new'
-
+  root to: 'tasks#home'
 
   #match 'tasks/get&:indatum&:einddatum&:prioriteit&:beschrijving&:status' => 'tasks#getSave' , via: [:get, :post]
   # The priority is based upon order of creation: first created -> highest priority.
