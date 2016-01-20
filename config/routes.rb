@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+
+  resources :tasks
+
+  root to: 'tasks#index'
+
+  get '/tasks/index' => 'task#new'
+  get '/tasks/show' => 'tasks#create'
+  # get 'tasks?params' => 'tasks#create'
+  # get 'tasks/:indatum&:einddatum&:prioriteit&:beschrijving&:status' => 'tasks#new'
+
+
+  #match 'tasks/get&:indatum&:einddatum&:prioriteit&:beschrijving&:status' => 'tasks#getSave' , via: [:get, :post]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
